@@ -40,7 +40,7 @@ func runIdentity(cmd *cobra.Command, _ []string) error {
 		event = bladeapiv1alpha1.Event_IDENTIFY_CONFIRM
 	}
 
-	// Emit the event to the computeblade-agent
+	// Emit the event to the compute-blade-agent
 	_, err = client.EmitEvent(ctx, &bladeapiv1alpha1.EmitEventRequest{Event: event})
 	if err != nil {
 		return err

@@ -29,7 +29,7 @@ var (
 
 func init() {
 	rootCmd.PersistentFlags().
-		StringVar(&grpcAddr, "addr", "unix:///tmp/computeblade-agent.sock", "address of the computeblade-agent gRPC server")
+		StringVar(&grpcAddr, "addr", "unix:///tmp/compute-blade-agent.sock", "address of the compute-blade-agent gRPC server")
 	rootCmd.PersistentFlags().DurationVar(&timeout, "timeout", time.Minute, "timeout for gRPC requests")
 }
 
@@ -47,7 +47,7 @@ func clientFromContext(ctx context.Context) bladeapiv1alpha1.BladeAgentServiceCl
 
 var rootCmd = &cobra.Command{
 	Use:   "bladectl",
-	Short: "bladectl interacts with the computeblade-agent and allows you to manage hardware-features of your compute blade(s)",
+	Short: "bladectl interacts with the compute-blade-agent and allows you to manage hardware-features of your compute blade(s)",
 	PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 		origCtx := cmd.Context()
 
