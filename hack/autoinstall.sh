@@ -5,7 +5,7 @@ set -eu
 tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 
-# Function to detect the Linux package manager
+# Function to detect the package suffix based on the available package manager
 detect_package_suffix() {
     if [ -x "$(command -v dpkg)" ]; then
         echo "deb"
@@ -25,12 +25,15 @@ get_latest_release() {
     curl -s "https://api.github.com/repos/$repo/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 }
 
-github_repo="github.com/uptime-industries/compute-blade-agent"
+github_repo="uptime-industries/compute-blade-agent"
 package_suffix=$(detect_package_suffix)
 latest_release=$(get_latest_release "$github_repo")
 
+# Create a temporary directory for the download
+tmp_dir=$(mktemp -d)
+
 # Construct the download URL and filename based on the detected package manager and latest release
-download_url="https://github.com/$github_repo/releases/download/$latest_release/${github_repo##*/}_${latest_release#v}_linux_arm64.$package_suffix"
+download_url="https://github.com/$github_repo/releases/download/$latest_release/compute-blade-agent_${latest_release#v}_linux_arm64.$package_suffix"
 target_file="$tmp_dir/compute-blade-agent.$package_suffix"
 
 # Download the package
@@ -48,6 +51,10 @@ case "$package_suffix" in
         ;;
     pkg.tar.zst)
         sudo pacman -U --noconfirm "$target_file"
+        ;;
+    *)
+        echo "Unsupported package format" >> /dev/stderr
+        exit 1
         ;;
 esac
 
