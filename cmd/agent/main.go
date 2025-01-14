@@ -34,7 +34,7 @@ func main() {
 	viper.AutomaticEnv()
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath("/etc/computeblade-agent")
+	viper.AddConfigPath("/etc/compute-blade-agent")
 
 	// Load potential file configs
 	if err := viper.ReadInConfig(); err != nil {
@@ -52,7 +52,7 @@ func main() {
 		panic(fmt.Errorf("invalid log.mode: %s", logMode))
 	}
 
-	zapLogger := baseLogger.With(zap.String("app", "computeblade-agent"))
+	zapLogger := baseLogger.With(zap.String("app", "compute-blade-agent"))
 	defer func() {
 		_ = zapLogger.Sync()
 	}()
@@ -84,7 +84,7 @@ func main() {
 		}
 	}()
 
-	log.FromContext(ctx).Info("Bootstrapping computeblade-agent", zap.String("version", viper.GetString("version")))
+	log.FromContext(ctx).Info("Bootstrapping compute-blade-agent", zap.String("version", viper.GetString("version")))
 	computebladeAgent, err := agent.NewComputeBladeAgent(ctx, cbAgentConfig)
 	if err != nil {
 		log.FromContext(ctx).Error("Failed to create agent", zap.Error(err))

@@ -15,7 +15,7 @@ jobs:
         id: release-please
         with:
           release-type: simple  # actual releasing is handled by goreleaser
-          package-name: computeblade-agent
+          package-name: compute-blade-agent
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
 

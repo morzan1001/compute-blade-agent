@@ -1,4 +1,4 @@
-# Default configuration for the computeblade-agent
+# Default configuration for the compute-blade-agent
 
 log:
   mode: production  # production, development
@@ -6,7 +6,7 @@ log:
 # Listen configuration
 listen:
   metrics: ":9666"
-  grpc: /tmp/computeblade-agent.sock
+  grpc: /tmp/compute-blade-agent.sock
 
 # Hardware abstraction layer configuration
 hal:
