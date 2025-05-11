@@ -1,7 +1,24 @@
 # Changelog
 
-## [0.6.6](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.5...v0.6.6) (2025-01-14)
+## [0.7.0](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.6...v0.7.0) (2025-05-11)
 
+### ⚠ BREAKING CHANGES
+
+* **agent:** add support for mTLS authentication in gRPC server ([#54](https://github.com/uptime-industries/compute-blade-agent/issues/54))
+
+### Features
+
+* **agent:** add support for mTLS authentication in gRPC server ([#54](https://github.com/uptime-industries/compute-blade-agent/issues/54)) ([70541d8](https://github.com/uptime-industries/compute-blade-agent/commit/70541d86bad675a153daf8b5c80a92de204502ab))
+* **agent:** expose version, commit, and date information in logs for better tracking ([ec6229a](https://github.com/uptime-industries/compute-blade-agent/commit/ec6229ad86b4eff06e40c805f8e4f216fe844c18))
+* **bladectl:** implement command structure for managing compute-blade features ([ec6229a](https://github.com/uptime-industries/compute-blade-agent/commit/ec6229ad86b4eff06e40c805f8e4f216fe844c18))
+* **goreleaser:** add versioning information to builds for better traceability ([ec6229a](https://github.com/uptime-industries/compute-blade-agent/commit/ec6229ad86b4eff06e40c805f8e4f216fe844c18))
+
+### Bug Fixes
+
+* **.gitignore:** add .idea directory to ignore list to prevent IDE files from being tracked ([ec6229a](https://github.com/uptime-industries/compute-blade-agent/commit/ec6229ad86b4eff06e40c805f8e4f216fe844c18))
+* **bladectl:** improve error handling in identify command for better user feedback ([ec6229a](https://github.com/uptime-industries/compute-blade-agent/commit/ec6229ad86b4eff06e40c805f8e4f216fe844c18))
+
+## [0.6.6](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.5...v0.6.6) (2025-01-14)
 
 ### Bug Fixes
 
@@ -9,13 +26,11 @@
 
 ## [0.6.5](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.4...v0.6.5) (2024-08-31)
 
-
 ### Bug Fixes
 
 * pin golang/tinygo versions ([ca690d4](https://github.com/uptime-industries/compute-blade-agent/commit/ca690d418f099881b6aafdb2ca4be3cee6ac73fc))
 
 ## [0.6.4](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.3...v0.6.4) (2024-08-31)
-
 
 ### Bug Fixes
 
@@ -23,13 +38,11 @@
 
 ## [0.6.3](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.2...v0.6.3) (2024-08-05)
 
-
 ### Bug Fixes
 
 * oci reg typo ([3cbf7a8](https://github.com/uptime-industries/compute-blade-agent/commit/3cbf7a8733dedde834f7392de0851c971a6e3a05))
 
 ## [0.6.2](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.1...v0.6.2) (2024-08-05)
-
 
 ### Bug Fixes
 
@@ -37,13 +50,11 @@
 
 ## [0.6.1](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.0...v0.6.1) (2024-08-05)
 
-
 ### Bug Fixes
 
 * bump tinygo release ([#39](https://github.com/uptime-industries/compute-blade-agent/issues/39)) ([3278678](https://github.com/uptime-industries/compute-blade-agent/commit/32786787683e2a0cd42b63b92fe7dd2c41bb6e8f))
 
 ## [0.6.0](https://github.com/uptime-industries/compute-blade-agent/compare/v0.5.0...v0.6.0) (2024-08-05)
-
 
 ### Features
 
@@ -51,18 +62,15 @@
 
 ## [0.5.0](https://github.com/github.com/uptime-industries/compute-blade-agent/compare/v0.4.1...v0.5.0) (2023-11-25)
 
-
 ### Features
 
 * add smart fan unit support ([#29](https://github.com/github.com/uptime-industries/compute-blade-agent/issues/29)) ([9992037](https://github.com/github.com/uptime-industries/compute-blade-agent/commit/99920370fba8176dc34243d28281aa343f437fc5))
-
 
 ### Bug Fixes
 
 * smart fan unit improvements ([#31](https://github.com/github.com/uptime-industries/compute-blade-agent/issues/31)) ([a8d470d](https://github.com/github.com/uptime-industries/compute-blade-agent/commit/a8d470d4f9ec2749e1067474805f67639cd24c09))
 
 ## [0.4.1](https://github.com/github.com/uptime-industries/compute-blade-agent/compare/v0.4.0...v0.4.1) (2023-10-05)
-
 
 ### Bug Fixes
 
@@ -74,11 +82,9 @@
 
 ## [0.4.0](https://github.com/github.com/uptime-industries/compute-blade-agent/compare/v0.3.4...v0.4.0) (2023-10-05)
 
-
 ### Features
 
 * switch to release-please ([#19](https://github.com/github.com/uptime-industries/compute-blade-agent/issues/19)) ([33dd6e5](https://github.com/github.com/uptime-industries/compute-blade-agent/commit/33dd6e5adf45d2b59c1af061c7e78c9426329f15))
-
 
 ### Bug Fixes
 
