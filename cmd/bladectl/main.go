@@ -3,32 +3,23 @@ package main
 import (
 	"context"
 	"log"
-	"time"
+	"strings"
 
-	bladeapiv1alpha1 "github.com/uptime-induestries/compute-blade-agent/api/bladeapi/v1alpha1"
+	"github.com/spf13/viper"
+	bladeapiv1alpha1 "github.com/uptime-industries/compute-blade-agent/api/bladeapi/v1alpha1"
 )
 
 type grpcClientContextKey int
 
 const (
-	defaultGrpcClientContextKey     grpcClientContextKey = 0
-	defaultGrpcClientConnContextKey grpcClientContextKey = 1
+	defaultGrpcClientContextKey grpcClientContextKey = 0
 )
 
 var (
-	grpcAddr string
-	timeout  time.Duration
-
 	Version string
 	Commit  string
 	Date    string
 )
-
-func init() {
-	rootCmd.PersistentFlags().
-		StringVar(&grpcAddr, "addr", "unix:///tmp/compute-blade-agent.sock", "address of the compute-blade-agent gRPC server")
-	rootCmd.PersistentFlags().DurationVar(&timeout, "timeout", time.Minute, "timeout for gRPC requests")
-}
 
 func clientIntoContext(ctx context.Context, client bladeapiv1alpha1.BladeAgentServiceClient) context.Context {
 	return context.WithValue(ctx, defaultGrpcClientContextKey, client)
@@ -43,6 +34,13 @@ func clientFromContext(ctx context.Context) bladeapiv1alpha1.BladeAgentServiceCl
 }
 
 func main() {
+	// Setup configuration
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viper.AutomaticEnv()
+	viper.SetConfigName("config")
+	viper.SetConfigType("yaml")
+	viper.AddConfigPath("$HOME/.config/bladectl")
+
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatal(err)
 	}
