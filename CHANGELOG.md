@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.2](https://github.com/uptime-industries/compute-blade-agent/compare/v0.8.1...v0.8.2) (2025-05-24)
+
+### Bug Fixes
+
+* auth to ghcr.io ([#63](https://github.com/uptime-industries/compute-blade-agent/issues/63)) ([e600d32](https://github.com/uptime-industries/compute-blade-agent/commit/e600d3245317eafe7df0090e7bc6f1dff45a5693))
+
 ## [0.8.1](https://github.com/uptime-industries/compute-blade-agent/compare/v0.8.0...v0.8.1) (2025-05-24)
 
 ### Bug Fixes
