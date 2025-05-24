@@ -1,8 +1,16 @@
 # Changelog
 
-## [0.7.0](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.6...v0.7.0) (2025-05-11)
+## [0.8.0](https://github.com/uptime-industries/compute-blade-agent/compare/v0.7.0...v0.8.0) (2025-05-24)
 
 ### ⚠ BREAKING CHANGES
+
+* **go version:** Bump go version to 1.24 ([#58](https://github.com/uptime-industries/compute-blade-agent/issues/58))
+
+### Miscellaneous Chores
+
+* **go version:** Bump go version to 1.24 ([#58](https://github.com/uptime-industries/compute-blade-agent/issues/58)) ([bb7b8cd](https://github.com/uptime-industries/compute-blade-agent/commit/bb7b8cd55d88954bb2632606e12b2c9eb057690a))
+
+## [0.7.0](https://github.com/uptime-industries/compute-blade-agent/compare/v0.6.6...v0.7.0) (2025-05-11)
 
 * **agent:** add support for mTLS authentication in gRPC server ([#54](https://github.com/uptime-industries/compute-blade-agent/issues/54))
 
