@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.1](https://github.com/uptime-industries/compute-blade-agent/compare/v0.8.0...v0.8.1) (2025-05-24)
+
+### Bug Fixes
+
+* set goreleaser version to v2.x ([#61](https://github.com/uptime-industries/compute-blade-agent/issues/61)) ([08a4e9b](https://github.com/uptime-industries/compute-blade-agent/commit/08a4e9bca67f53e69fec3ce4cdf93344f2cf1327))
+
 ## [0.8.0](https://github.com/uptime-industries/compute-blade-agent/compare/v0.7.0...v0.8.0) (2025-05-24)
 
 ### ⚠ BREAKING CHANGES
