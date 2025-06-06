@@ -10,7 +10,14 @@ import (
 
 type FanController interface {
 	Override(opts *FanOverrideOpts)
-	GetFanSpeed(temperature float64) uint8
+	// GetFanSpeedPercent returns the fan speed in percent based on the current temperature
+	GetFanSpeedPercent(temperature float64) uint8
+	// IsAutomaticSpeed returns true if the FanSpeed is determined by the fan controller logic, or false if determined
+	// by an FanOverrideOpts
+	IsAutomaticSpeed() bool
+
+	// Steps returns the list of temperature and fan speed steps configured for the fan controller.
+	Steps() []Step
 }
 
 // FanController is a simple fan controller that reacts to temperature changes with a linear function
@@ -60,14 +67,18 @@ func NewLinearFanController(config Config) (FanController, humane.Error) {
 	}, nil
 }
 
+func (f *fanControllerLinear) Steps() []Step {
+	return f.config.Steps
+}
+
 func (f *fanControllerLinear) Override(opts *FanOverrideOpts) {
 	f.mu.Lock()
 	defer f.mu.Unlock()
 	f.overrideOpts = opts
 }
 
-// GetFanSpeed returns the fan speed in percent based on the current temperature
-func (f *fanControllerLinear) GetFanSpeed(temperature float64) uint8 {
+// GetFanSpeedPercent returns the fan speed in percent based on the current temperature
+func (f *fanControllerLinear) GetFanSpeedPercent(temperature float64) uint8 {
 	f.mu.Lock()
 	defer f.mu.Unlock()
 
@@ -89,4 +100,8 @@ func (f *fanControllerLinear) GetFanSpeed(temperature float64) uint8 {
 	speed := float64(f.config.Steps[0].Percent) + slope*(temperature-f.config.Steps[0].Temperature)
 
 	return uint8(speed)
+}
+
+func (f *fanControllerLinear) IsAutomaticSpeed() bool {
+	return f.overrideOpts == nil
 }
