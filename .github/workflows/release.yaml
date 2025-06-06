@@ -48,6 +48,7 @@ jobs:
           release-type: simple # actual releasing is handled by goreleaser
           package-name: compute-blade-agent
           bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
 
