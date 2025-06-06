@@ -40,7 +40,12 @@ var cmdVersion = &cobra.Command{
 			tablewriter.WithHeaderAutoFormat(tw.Off),
 		)
 
-		_ = tbl.Append([]string{"bladectl", Version, Commit, BuildTime.Format(time.RFC3339)})
+		commit := Commit
+		if len(commit) > 7 {
+			commit = commit[:7]
+		}
+
+		_ = tbl.Append([]string{"bladectl", Version, commit, BuildTime.Format(time.RFC3339)})
 
 		var wg sync.WaitGroup
 		for idx, client := range clients {
@@ -49,10 +54,15 @@ var cmdVersion = &cobra.Command{
 				defer wg.Done()
 
 				if status, err := client.GetStatus(ctx, &emptypb.Empty{}); err == nil && status.Version != nil {
+					commit := status.Version.Commit
+					if len(commit) > 7 {
+						commit = commit[:7]
+					}
+
 					_ = tbl.Append([]string{
 						fmt.Sprintf("api: %s", bladeNames[idx]),
 						status.Version.Version,
-						status.Version.Commit,
+						commit,
 						time.Unix(status.Version.Date, 0).Format(time.RFC3339),
 					})
 				} else {
