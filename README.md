@@ -7,7 +7,7 @@
 Install the agent with the one-liner below:
 
 ```bash
-curl -L -o /tmp/compute-blade-agent-installer.sh https://raw.githubusercontent.com/uptime-industries/compute-blade-agent/main/hack/autoinstall.sh
+curl -L -o /tmp/compute-blade-agent-installer.sh https://raw.githubusercontent.com/compute-blade-community/compute-blade-agent/main/hack/autoinstall.sh
 chmod +x /tmp/compute-blade-agent-installer.sh
 /tmp/compute-blade-agent-installer.sh
 ```
@@ -43,14 +43,14 @@ This firmware runs on the fan unit microcontroller and:
 - Forwards button events (1x = left blade, 2x = right blade).
 - Uses EMC2101 for optional advanced features like airflow-based fan control.
 
-To install it, [download the `fanunit.uf2`](https://github.com/uptime-industries/compute-blade-agent/releases/latest), and follow the firmware upgrade instructions [here](https://docs.computeblade.com/fan-unit/uart#update-firmware).
+To install it, [download the `fanunit.uf2`](https://github.com/compute-blade-community/compute-blade-agent/releases/latest), and follow the firmware upgrade instructions [here](https://docs.computeblade.com/fan-unit/uart#update-firmware).
 
 ## Installation
 
 Install the agent with the one-liner below:
 
 ```bash
-curl -L -o /tmp/compute-blade-agent-installer.sh https://raw.githubusercontent.com/uptime-industries/compute-blade-agent/main/hack/autoinstall.sh
+curl -L -o /tmp/compute-blade-agent-installer.sh https://raw.githubusercontent.com/compute-blade-community/compute-blade-agent/main/hack/autoinstall.sh
 chmod +x /tmp/compute-blade-agent-installer.sh
 /tmp/compute-blade-agent-installer.sh
 ```
